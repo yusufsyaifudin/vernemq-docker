@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  vernemq:
+    image: vernemq/vernemq:1.12.3-alpine
+    ports:
+      - "1883:1883"
+    environment:
+      - DOCKER_VERNEMQ_ACCEPT_EULA=yes
+      - DOCKER_VERNEMQ_VMQ_PASSWD__PASSWORD_FILE=/etc/vernemq/vmq.passwd
+    volumes:
+      - ./vernemq_conf/vmq.passwd:/etc/vernemq/vmq.passwd
